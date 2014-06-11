@@ -16,7 +16,7 @@
 $(call inherit-product, device/semc/mango/full_mango.mk)
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_mini_phone.mk)
+$(call inherit-product, vendor/carbon/config/common_phone.mk)
 
 # Optional CM packages
 PRODUCT_PACKAGES += \
@@ -33,16 +33,10 @@ PRODUCT_PACKAGES += \
 # Set build fingerprint / ID / Product Name ect.
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=SK17i \
-    PRODUCT_DEVICE=SK17i \
     BUILD_FINGERPRINT="SEMC/SK17i_1254-2184/SK17i:4.0.4/4.1.B.0.587/tL1_3w:user/release-keys" \
     PRIVATE_BUILD_DESC="SK17i-user 4.0.4 4.1.B.0.587 tL1_3w test-keys"
 
 # Device identifier. This must come after all inclusions
-PRODUCT_NAME := cm_mango
-PRODUCT_GMS_CLIENTID_BASE := android-sonyericsson
-
-# Release name
-PRODUCT_RELEASE_NAME := mango
-
-# Custom tag for unofficial builds
-TARGET_UNOFFICIAL_BUILD_ID := LegacyXperia
+PRODUCT_NAME := carbon_mango
+PRODUCT_DEVICE := mango
+PRODUCT_PROPERTY_OVERRIDES += ro.buildzipid=carbon.mango.$(shell date +%m%d%y).$(shell date +%H%M%S)

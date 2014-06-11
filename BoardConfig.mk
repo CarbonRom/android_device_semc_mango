@@ -15,13 +15,15 @@
 -include device/semc/mogami-common/BoardConfigCommon.mk
 -include vendor/semc/mango/BoardConfigVendor.mk
 
-TARGET_SPECIFIC_HEADER_PATH += device/semc/mango/include
+TARGET_SPECIFIC_HEADER_PATH += device/semc/mango/include \
+
+$(shell mkdir -p out/target/product/mango/obj/KERNEL_OBJ/usr)
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/semc/mango/bluedroid
 
 # Kernel
-TARGET_KERNEL_CONFIG := lx_mango_defconfig
+TARGET_KERNEL_CONFIG := nAa_mango_defconfig
 
 # Sensors
 SOMC_CFG_SENSORS_ACCEL_BMA250_INPUT := yes
